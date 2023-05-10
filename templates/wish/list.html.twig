@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <ul>
+        <li><a href="{{ path('wish_details', {"id" : "1"}) }}">Truc 1</a></li>
+        <li><a href="{{ path('wish_details', {"id" : "2"}) }}">Truc 2</a></li>
+        <li><a href="{{ path('wish_details', {"id" : "3"}) }}">Truc 3</a></li>
+    </ul>
+
+{% endblock %}
+
+{% block title %}
+{{ parent() }} | about
+{% endblock %}
+
