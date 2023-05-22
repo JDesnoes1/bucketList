@@ -1,7 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-<h2>Details de l'article avec l'id {{ id }}</h2>
+    <h1>Détails of {{ wish.title }}</h1>
+    <h3>{{ wish.author }}</h3>
+    <p>{{ wish.description }} : {{ wish.createdDate | date('Y-m-d') }}</p>
 {% endblock %}
 
 {% block title %}

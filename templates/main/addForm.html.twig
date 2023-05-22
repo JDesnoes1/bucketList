@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+{% form_theme wishForm 'wish/form_theme_html.twig' %}
+
+{% block body %}
+{{form_start(wishForm)}}
+    {{ form_widget(wishForm) }}
+    <button class="link_button">{% block buttonLabel %}Add a new one{% endblock %}</button>
+    {{ form_end(wishForm) }}
+{% endblock %}
+
+{% block title %}
+    {{ parent() }} | addWish
+{% endblock %}

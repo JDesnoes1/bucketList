@@ -1,11 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <ul>
-        <li><a href="{{ path('wish_details', {"id" : "1"}) }}">Truc 1</a></li>
-        <li><a href="{{ path('wish_details', {"id" : "2"}) }}">Truc 2</a></li>
-        <li><a href="{{ path('wish_details', {"id" : "3"}) }}">Truc 3</a></li>
-    </ul>
+    <h1>WishList</h1>
+    {% for wish in wishes %}
+        <a href="{{ path('wish_details', {'id' : wish.id}) }}"><h3>{{ wish.title }} : {{ wish.createdDate | date('Y-m-d') }}</h3></a>
+    {% endfor %}
 
 {% endblock %}
 
