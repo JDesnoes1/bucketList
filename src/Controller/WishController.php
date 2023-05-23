@@ -38,8 +38,6 @@ class WishController extends AbstractController
 
         $wishForm->handleRequest($request);
         if ($wishForm->isSubmitted() && $wishForm->isValid()) {
-            $wish->setCreatedDate(new \DateTime());
-            $wish->setIsPublished(true);
             $wishRepository->save($wish, true);
 
             $this->addFlash("success", message: "Wish successfully added");

@@ -8,6 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: WishRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Wish
 {
     #[ORM\Id]
@@ -107,5 +108,10 @@ class Wish
         $this->createdDate = $createdDate;
 
         return $this;
+    }
+    #[ORM\PrePersist()]
+    public function setNewWish(){
+        $this->setCreatedDate(new \DateTime());
+        $this->setIsPublished(true);
     }
 }
