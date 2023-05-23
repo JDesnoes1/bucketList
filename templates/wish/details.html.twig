@@ -4,6 +4,7 @@
     <h1>Détails of {{ wish.title }}</h1>
     <h3>{{ wish.author }}</h3>
     <p>{{ wish.description }} : {{ wish.createdDate | date('Y-m-d') }}</p>
+    <p>Catégorie : {{ wish.category.name }}</p>
 {% endblock %}
 
 {% block title %}

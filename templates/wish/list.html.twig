@@ -3,7 +3,8 @@
 {% block body %}
     <h1>WishList</h1>
     {% for wish in wishes %}
-        <a href="{{ path('wish_details', {'id' : wish.id}) }}"><h3>{{ wish.title }} : {{ wish.createdDate | date('Y-m-d') }}</h3></a>
+        <a href="{{ path('wish_details', {'id' : wish.id}) }}"><h3>{{ wish.title }} : {{ wish.createdDate | date('Y-m-d') }} / {{ wish.category.name }}</h3></a>
+
     {% endfor %}
 
 {% endblock %}
