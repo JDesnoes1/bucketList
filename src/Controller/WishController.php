@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\WishRepository;
+use http\Client\Curl\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,6 +35,7 @@ class WishController extends AbstractController
     public function new(Request $request, WishRepository $wishRepository): Response
     {
         $wish = new Wish();
+        $wish->setAuthor($this->getUser()->getUserIdentifier());
         $wishForm = $this->createForm(WishType::class, $wish);
 
         $wishForm->handleRequest($request);
